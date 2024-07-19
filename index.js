@@ -93,23 +93,50 @@
 // Добавит элементу класс item.
 // После чего вставит все <li> за одну операцию в список ul#ingredients.
 
-const ingredients = [
-  "Potatoes",
-  "Mushrooms",
-  "Garlic",
-  "Tomatos",
-  "Herbs",
-  "Condiments",
+// const ingredients = [
+//   "Potatoes",
+//   "Mushrooms",
+//   "Garlic",
+//   "Tomatos",
+//   "Herbs",
+//   "Condiments",
+// ];
+
+// const ingredientsListEl = document.querySelector("#ingredients");
+
+// const ingredientsEl = ingredients.map((elem) => {
+//   const ingredientEl = document.createElement("li");
+//   ingredientEl.textContent = elem;
+//   ingredientEl.classList.add("item");
+
+//   return ingredientEl;
+// });
+
+// ingredientsListEl.append(...ingredientsEl);
+
+// ******** task 3 *******
+
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
 ];
 
-const ingredientsListEl = document.querySelector("#ingredients");
+const galleryEl = document.querySelector(".gallery");
 
-const ingredientsEl = ingredients.map((elem) => {
-  const ingredientEl = document.createElement("li");
-  ingredientEl.textContent = elem;
-  ingredientEl.classList.add("item");
+function createGalleryItem({ url, alt }) {
+  return `<li class="gallerey__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
+}
 
-  return ingredientEl;
-});
+const galleryMarkup = images.map(createGalleryItem).join("");
 
-ingredientsListEl.append(...ingredientsEl);
+galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
