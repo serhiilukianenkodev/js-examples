@@ -201,12 +201,33 @@
 
 // ************task 7*********
 
-const inputEl = document.querySelector("#font-size-control");
-const outputEl = document.querySelector("#text");
-console.log("🚀 ~ inputEl:", inputEl);
+// const inputEl = document.querySelector("#font-size-control");
+// const outputEl = document.querySelector("#text");
+// console.log("🚀 ~ inputEl:", inputEl);
 
-inputEl.addEventListener("input", onInput);
+// inputEl.addEventListener("input", onInput);
 
-function onInput(evt) {
-  outputEl.style.fontSize = `${evt.currentTarget.value}px`;
+// function onInput(evt) {
+//   outputEl.style.fontSize = `${evt.currentTarget.value}px`;
+// }
+
+//------------task 8---------------
+
+const formEl = document.querySelector(".login-form");
+
+formEl.addEventListener("submit", onFormSubmit);
+
+function onFormSubmit(evt) {
+  evt.preventDefault();
+  const email = evt.target.elements.email.value;
+  const password = evt.target.elements.password.value;
+  if (!email || !password) {
+    alert("Всі поля форми мають бути заповнені");
+    return;
+  }
+  console.log({
+    email,
+    password,
+  });
+  evt.currentTarget.reset();
 }
