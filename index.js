@@ -213,21 +213,43 @@
 
 //------------task 8---------------
 
-const formEl = document.querySelector(".login-form");
+// const formEl = document.querySelector(".login-form");
 
-formEl.addEventListener("submit", onFormSubmit);
+// formEl.addEventListener("submit", onFormSubmit);
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
-  const email = evt.target.elements.email.value;
-  const password = evt.target.elements.password.value;
-  if (!email || !password) {
-    alert("Всі поля форми мають бути заповнені");
-    return;
-  }
-  console.log({
-    email,
-    password,
-  });
-  evt.currentTarget.reset();
+// function onFormSubmit(evt) {
+//   evt.preventDefault();
+//   const email = evt.target.elements.email.value;
+//   const password = evt.target.elements.password.value;
+//   if (!email || !password) {
+//     alert("Всі поля форми мають бути заповнені");
+//     return;
+//   }
+//   console.log({
+//     email,
+//     password,
+//   });
+//   evt.currentTarget.reset();
+// }
+
+// ---------------task 9 --------------
+const refs = {
+  btnChange: document.querySelector(".change-color"),
+  field: document.querySelector(".color"),
+  body: document.querySelector("body"),
+};
+
+refs.btnChange.addEventListener("click", onBtnClick);
+
+function onBtnClick() {
+  const randomColor = getRandomHexColor();
+
+  refs.field.textContent = randomColor;
+  refs.body.style.backgroundColor = randomColor;
+}
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 }
