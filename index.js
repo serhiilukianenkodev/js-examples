@@ -233,23 +233,61 @@
 // }
 
 // ---------------task 9 --------------
+// const refs = {
+//   btnChange: document.querySelector(".change-color"),
+//   field: document.querySelector(".color"),
+//   body: document.querySelector("body"),
+// };
+
+// refs.btnChange.addEventListener("click", onBtnClick);
+
+// function onBtnClick() {
+//   const randomColor = getRandomHexColor();
+
+//   refs.field.textContent = randomColor;
+//   refs.body.style.backgroundColor = randomColor;
+// }
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }
+
+// ------------task 10 -----------
+
 const refs = {
-  btnChange: document.querySelector(".change-color"),
-  field: document.querySelector(".color"),
-  body: document.querySelector("body"),
+  controls: document.querySelector("#controls"),
+  boxes: document.querySelector("#boxes"),
+  input: controls.querySelector("input"),
+  createBtn: controls.querySelector("button[data-create]"),
+  destroyBtn: controls.querySelector("button[data-destroy]"),
 };
 
-refs.btnChange.addEventListener("click", onBtnClick);
+refs.createBtn.addEventListener("click", onCreateBtnClick);
+refs.destroyBtn.addEventListener("click", destroyBoxes);
 
-function onBtnClick() {
-  const randomColor = getRandomHexColor();
-
-  refs.field.textContent = randomColor;
-  refs.body.style.backgroundColor = randomColor;
+function onCreateBtnClick() {
+  createBoxes(refs.input.value);
 }
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
+}
+
+function createBoxes(amount) {
+  let markup = "";
+  for (let i = 0; i < amount; i += 1) {
+    markup += `<div style="width: ${30 + i * 10}px; height: ${
+      30 + i * 10
+    }px; background-color: ${getRandomHexColor()}"></div>`;
+  }
+
+  refs.boxes.innerHTML = markup;
+}
+
+function destroyBoxes() {
+  refs.boxes.innerHTML = "";
 }
