@@ -185,16 +185,28 @@
 
 // **********task 6***********
 
-const inputEl = document.querySelector("#validation-input");
+// const inputEl = document.querySelector("#validation-input");
 
-inputEl.addEventListener("blur", onInputBlur);
+// inputEl.addEventListener("blur", onInputBlur);
 
-function onInputBlur(evt) {
-  if (evt.currentTarget.value.length === Number(inputEl.dataset.length)) {
-    inputEl.classList.add("valid");
-    inputEl.classList.remove("invalid");
-  } else {
-    inputEl.classList.add("invalid");
-    inputEl.classList.remove("valid");
-  }
+// function onInputBlur(evt) {
+//   if (evt.currentTarget.value.length === Number(inputEl.dataset.length)) {
+//     inputEl.classList.add("valid");
+//     inputEl.classList.remove("invalid");
+//   } else {
+//     inputEl.classList.add("invalid");
+//     inputEl.classList.remove("valid");
+//   }
+// }
+
+// ************task 7*********
+
+const inputEl = document.querySelector("#font-size-control");
+const outputEl = document.querySelector("#text");
+console.log("🚀 ~ inputEl:", inputEl);
+
+inputEl.addEventListener("input", onInput);
+
+function onInput(evt) {
+  outputEl.style.fontSize = `${evt.currentTarget.value}px`;
 }
