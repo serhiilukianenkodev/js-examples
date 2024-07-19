@@ -143,29 +143,42 @@
 
 // ***************task 4*************
 
-const refs = {
-  counter: document.querySelector("#counter"),
-  decrementBtn: counter.querySelector("button[data-action='decrement']"),
-  incrementBtn: counter.querySelector("button[data-action='increment']"),
-  outputField: counter.querySelector("#value"),
-};
+// const refs = {
+//   counter: document.querySelector("#counter"),
+//   decrementBtn: counter.querySelector("button[data-action='decrement']"),
+//   incrementBtn: counter.querySelector("button[data-action='increment']"),
+//   outputField: counter.querySelector("#value"),
+// };
 
-let counterValue = 0;
-updateValue(counterValue);
-// console.log("🚀 ~ refs.outputField:", refs.outputField.textContent);
-// console.log("🚀 ~ decrementBtn:", refs.decrementBtn);
-// console.log("🚀 ~ incrementBtn:", refs.incrementBtn);
+// let counterValue = 0;
+// updateValue(counterValue);
+// // console.log("🚀 ~ refs.outputField:", refs.outputField.textContent);
+// // console.log("🚀 ~ decrementBtn:", refs.decrementBtn);
+// // console.log("🚀 ~ incrementBtn:", refs.incrementBtn);
 
-refs.decrementBtn.addEventListener("click", () => {
-  counterValue -= 1;
-  updateValue(counterValue);
-});
+// refs.decrementBtn.addEventListener("click", () => {
+//   counterValue -= 1;
+//   updateValue(counterValue);
+// });
 
-refs.incrementBtn.addEventListener("click", () => {
-  counterValue += 1;
-  updateValue(counterValue);
-});
+// refs.incrementBtn.addEventListener("click", () => {
+//   counterValue += 1;
+//   updateValue(counterValue);
+// });
 
-function updateValue(value) {
-  refs.outputField.textContent = value;
+// function updateValue(value) {
+//   refs.outputField.textContent = value;
+// }
+
+// ************task5************
+
+const inputEl = document.querySelector("#name-input");
+const outputEl = document.querySelector("#name-output");
+
+inputEl.addEventListener("input", onInput);
+
+function onInput(evt) {
+  let value = evt.currentTarget.value;
+
+  outputEl.textContent = !value ? "Anonymous" : value;
 }
