@@ -116,27 +116,56 @@
 
 // ******** task 3 *******
 
-const images = [
-  {
-    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
-    alt: "White and Black Long Fur Cat",
-  },
-  {
-    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
-    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
-  },
-  {
-    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
-    alt: "Group of Horses Running",
-  },
-];
+// const images = [
+//   {
+//     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+//     alt: "White and Black Long Fur Cat",
+//   },
+//   {
+//     url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+//     alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+//   },
+//   {
+//     url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+//     alt: "Group of Horses Running",
+//   },
+// ];
 
-const galleryEl = document.querySelector(".gallery");
+// const galleryEl = document.querySelector(".gallery");
 
-function createGalleryItem({ url, alt }) {
-  return `<li class="gallerey__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
+// function createGalleryItem({ url, alt }) {
+//   return `<li class="gallerey__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
+// }
+
+// const galleryMarkup = images.map(createGalleryItem).join("");
+
+// galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
+
+// ***************task 4*************
+
+const refs = {
+  counter: document.querySelector("#counter"),
+  decrementBtn: counter.querySelector("button[data-action='decrement']"),
+  incrementBtn: counter.querySelector("button[data-action='increment']"),
+  outputField: counter.querySelector("#value"),
+};
+
+let counterValue = 0;
+updateValue(counterValue);
+// console.log("🚀 ~ refs.outputField:", refs.outputField.textContent);
+// console.log("🚀 ~ decrementBtn:", refs.decrementBtn);
+// console.log("🚀 ~ incrementBtn:", refs.incrementBtn);
+
+refs.decrementBtn.addEventListener("click", () => {
+  counterValue -= 1;
+  updateValue(counterValue);
+});
+
+refs.incrementBtn.addEventListener("click", () => {
+  counterValue += 1;
+  updateValue(counterValue);
+});
+
+function updateValue(value) {
+  refs.outputField.textContent = value;
 }
-
-const galleryMarkup = images.map(createGalleryItem).join("");
-
-galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
