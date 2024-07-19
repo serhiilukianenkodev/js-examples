@@ -172,13 +172,29 @@
 
 // ************task5************
 
-const inputEl = document.querySelector("#name-input");
-const outputEl = document.querySelector("#name-output");
+// const inputEl = document.querySelector("#name-input");
+// const outputEl = document.querySelector("#name-output");
 
-inputEl.addEventListener("input", onInput);
+// inputEl.addEventListener("input", onInput);
 
-function onInput(evt) {
-  let value = evt.currentTarget.value;
+// function onInput(evt) {
+//   let value = evt.currentTarget.value;
 
-  outputEl.textContent = !value ? "Anonymous" : value;
+//   outputEl.textContent = !value ? "Anonymous" : value;
+// }
+
+// **********task 6***********
+
+const inputEl = document.querySelector("#validation-input");
+
+inputEl.addEventListener("blur", onInputBlur);
+
+function onInputBlur(evt) {
+  if (evt.currentTarget.value.length === Number(inputEl.dataset.length)) {
+    inputEl.classList.add("valid");
+    inputEl.classList.remove("invalid");
+  } else {
+    inputEl.classList.add("invalid");
+    inputEl.classList.remove("valid");
+  }
 }
