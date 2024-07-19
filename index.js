@@ -54,16 +54,62 @@
 // Category: Technologies
 // Elements: 5
 
-const refs = {
-  categories: document.querySelector("#categories"),
-};
+// const refs = {
+//   categories: document.querySelector("#categories"),
+// };
 
-console.log("Number of categories: ", refs.categories.children.length);
+// console.log("Number of categories: ", refs.categories.children.length);
 
-[...refs.categories.children].forEach((item) => {
-  //   console.dir(item);
-  const firstEl = item.firstElementChild.textContent;
-  const secondEl = item.lastElementChild.children.length;
-  console.log("Category:", firstEl);
-  console.log("Elements:", secondEl);
+// [...refs.categories.children].forEach((item) => {
+//   //   console.dir(item);
+//   const firstEl = item.firstElementChild.textContent;
+//   const secondEl = item.lastElementChild.children.length;
+//   console.log("Category:", firstEl);
+//   console.log("Elements:", secondEl);
+// });
+
+//***************************** */
+
+// Задание 2
+// В HTML есть пустой список ul#ingredients.
+
+// <ul id="ingredients"></ul>
+
+// В JavaScript есть массив строк.
+
+// const ingredients = [
+//   "Potatoes",
+//   "Mushrooms",
+//   "Garlic",
+//   "Tomatos",
+//   "Herbs",
+//   "Condiments",
+// ];
+
+// Напиши скрипт, который для каждого элемента массива ingredients:
+
+// Создаст отдельный элемент <li>. Обзательно используй метод document.createElement().
+// Добавит название ингредиента как его текстовое содержимое.
+// Добавит элементу класс item.
+// После чего вставит все <li> за одну операцию в список ul#ingredients.
+
+const ingredients = [
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
+];
+
+const ingredientsListEl = document.querySelector("#ingredients");
+
+const ingredientsEl = ingredients.map((elem) => {
+  const ingredientEl = document.createElement("li");
+  ingredientEl.textContent = elem;
+  ingredientEl.classList.add("item");
+
+  return ingredientEl;
 });
+
+ingredientsListEl.append(...ingredientsEl);
