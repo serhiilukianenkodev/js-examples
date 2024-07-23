@@ -407,89 +407,88 @@
 // // 3. 'Last Seen Alive: Action, Thriller.'
 // // 4. 'Jurassic World Dominion: Science Fiction, Action, Others.'
 
-function renderFilms(films) {
-  {
-    console.log("Films list:");
-    return films.map(({ title, genreNames }, i) => {
-      const renderedGenres = genreNames.slice(0, 2);
-      if (genreNames.length > 2) renderedGenres.push("Others");
+// function renderFilms(films) {
+//   {
+//     console.log("Films list:");
+//     return films.map(({ title, genreNames }, i) => {
+//       const renderedGenres = genreNames.slice(0, 2);
+//       if (genreNames.length > 2) renderedGenres.push("Others");
 
-      console.log(`${i + 1}. '${title}: ${renderedGenres.join(", ")}...'`);
-    });
-  }
-}
+//       console.log(`${i + 1}. '${title}: ${renderedGenres.join(", ")}...'`);
+//     });
+//   }
+// }
 
-const films = [
-  {
-    title: "Interceptor",
-    genreIDs: [28, 53, 12],
-  },
-  {
-    title: "Fantastic Beasts: The Secrets of Dumbledore",
-    genreIDs: [14, 12, 28],
-  },
-  {
-    title: "Last Seen Alive",
-    genreIDs: [28, 53],
-  },
-  {
-    title: "Jurassic World Dominion",
-    genreIDs: [878, 28, 12, 53],
-  },
-];
+// const films = [
+//   {
+//     title: "Interceptor",
+//     genreIDs: [28, 53, 12],
+//   },
+//   {
+//     title: "Fantastic Beasts: The Secrets of Dumbledore",
+//     genreIDs: [14, 12, 28],
+//   },
+//   {
+//     title: "Last Seen Alive",
+//     genreIDs: [28, 53],
+//   },
+//   {
+//     title: "Jurassic World Dominion",
+//     genreIDs: [878, 28, 12, 53],
+//   },
+// ];
 
-const genresInfo = {
-  genres: [
-    {
-      id: 28,
-      name: "Action",
-    },
-    {
-      id: 12,
-      name: "Adventure",
-    },
-    {
-      id: 14,
-      name: "Fantasy",
-    },
-    {
-      id: 878,
-      name: "Science Fiction",
-    },
-    {
-      id: 53,
-      name: "Thriller",
-    },
-    {
-      id: 10752,
-      name: "War",
-    },
-    {
-      id: 37,
-      name: "Western",
-    },
-  ],
-};
+// const genresInfo = {
+//   genres: [
+//     {
+//       id: 28,
+//       name: "Action",
+//     },
+//     {
+//       id: 12,
+//       name: "Adventure",
+//     },
+//     {
+//       id: 14,
+//       name: "Fantasy",
+//     },
+//     {
+//       id: 878,
+//       name: "Science Fiction",
+//     },
+//     {
+//       id: 53,
+//       name: "Thriller",
+//     },
+//     {
+//       id: 10752,
+//       name: "War",
+//     },
+//     {
+//       id: 37,
+//       name: "Western",
+//     },
+//   ],
+// };
 
-const filmsWithGenres = addGenres(films);
-console.log("🚀 ~ filmsWithGenres:", filmsWithGenres);
-renderFilms(filmsWithGenres);
+// const filmsWithGenres = addGenres(films);
+// console.log("🚀 ~ filmsWithGenres:", filmsWithGenres);
+// renderFilms(filmsWithGenres);
 
-function addGenres(films) {
-  return films.map((film) => {
-    return {
-      ...film,
-      genreNames: film.genreIDs.map((id) =>
-        findGenreById(id, genresInfo.genres)
-      ),
-    };
-  });
-}
+// function addGenres(films) {
+//   return films.map((film) => {
+//     return {
+//       ...film,
+//       genreNames: film.genreIDs.map((id) =>
+//         findGenreById(id, genresInfo.genres)
+//       ),
+//     };
+//   });
+// }
 
-function findGenreById(id, genres) {
-  // console.log(id, genres);
-  return genres.find((genre) => genre.id === id).name;
-}
+// function findGenreById(id, genres) {
+//   return genres.find((genre) => genre.id === id).name;
+// }
 
 // //     .
 
@@ -507,3 +506,38 @@ function findGenreById(id, genres) {
 
 // // student.getFullName(); //поверне 'Петрик Пяточкин'
 // // student.getCourse();   //поверне 3 (третій курс)
+
+// class User {
+//   #name;
+//   #surname;
+//   constructor(name, surname) {
+//     this.#name = name;
+//     this.#surname = surname;
+//   }
+
+//   getFullName() {
+//     const result = `${this.#name} ${this.#surname}`;
+//     console.log(result);
+//     return result;
+//   }
+// }
+
+// class Student extends User {
+//   static Current_YEAR = new Date().getFullYear();
+//   constructor(name, surname, year) {
+//     super(name, surname);
+//     this.year = year;
+//   }
+
+//   getCourse() {
+//     const course = Student.Current_YEAR - this.year;
+//     const result = course > 5 ? "Випускник" : course;
+//     console.log(result);
+//     return result;
+//   }
+// }
+
+// const student = new Student("Петрик", "Пяточкин", 2019);
+
+// student.getFullName(); //поверне 'Петрик Пяточкин'
+// student.getCourse(); //поверне 3 (третій курс)
